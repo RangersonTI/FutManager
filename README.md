@@ -13,8 +13,8 @@ Outras funcionalidade:
 
 ## Tecnologias utilizadas:
 
-📌 React
-📌 TypeScript
-📌 Yarn
-📌 Styled-Component
+📌 React <br>
+📌 TypeScript <br>
+📌 Yarn <br>
+📌 Styled-Component <br>
 📌 Axios
