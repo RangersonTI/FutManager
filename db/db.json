@@ -1,0 +1,25 @@
+{
+    "jogador": [
+
+        {
+            "id": 1,
+            "nomeJogador": "Thiago Silva",
+            "idade": 15
+        },
+        {
+            "id": 2,
+            "nomeJogador": "Luis Cardoso",
+            "idade": 15
+        },
+        {
+            "id": 3,
+            "nomeJogador": "Marcio da Silva",
+            "idade": 16
+        },
+        {
+            "id": 4,
+            "nomeJogador": "Carlinho Lima",
+            "idade": 15
+        }
+    ]
+}

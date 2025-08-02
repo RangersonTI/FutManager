@@ -5,10 +5,23 @@ const Jogador: IFormularioComponentProps = {
     possuiIconeVoltarTitulo: true,
     campos: [
         {
-            campoName: '',
-            label: '',
-            placeholder: ''
-        }
+            campoName: 'id',
+            label: 'ID',
+            placeholder: 'Informe o id do jogador',
+            tamanhoCampo: 'pp'
+        },
+        {
+            campoName: 'idade',
+            label: 'Idade',
+            placeholder: 'Informe a idade do jogador',
+            tamanhoCampo: 'pp'
+        },
+        {
+            campoName: 'nomeJogador',
+            label: 'Nome Jogador',
+            placeholder: 'Informe o nome do jogador',
+            tamanhoCampo: 'g'
+        },
     ]
 }
 

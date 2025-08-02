@@ -5,10 +5,11 @@ import { TypesEnter } from "../../../global/types";
 
 export const InputBase = ({
     value,
-    setValue,
+    handleChangeValue,
     refProximoItem,
     descricaoLabel,
     ref,
+    tamanhoInput = 'm',
     ...rest
 }: IInput) =>{
 
@@ -25,12 +26,14 @@ export const InputBase = ({
     )
 
     return(
-        <StyledInput>
+        <StyledInput
+            $tamanhoInput={tamanhoInput}
+        >
             <label>{descricaoLabel}</label>
             <input
                 ref={ref}
                 onKeyDown={handleExecutarComandoKeyDown}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={handleChangeValue}
                 value={value}
                 {...rest}
             />

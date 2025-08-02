@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const FormStyled = styled.form`
     width: 100%;
+    grid-gap: 10px;
 `
 
 export const Titulo = styled.div`
@@ -25,3 +26,12 @@ export const Titulo = styled.div`
         cursor: pointer;
     };
 `;
+
+export const AgrupamentoCamposForm = styled.div`
+    display: flex;
+    gap: 0.250rem;
+
+    input{
+        
+    }
+`

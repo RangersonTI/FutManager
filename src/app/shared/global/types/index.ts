@@ -21,8 +21,11 @@ export interface MappeadObject{
     [key:string] : any;
 }
 
+export type TTamanhoDoCampo = "pp" | "p"  | "m" | "g" 
+
 export interface ICamposFormProps{
     label: string;
+    tamanhoCampo?: TTamanhoDoCampo;
     campoName: string;
     campoId?: string;
     placeholder?: string;
