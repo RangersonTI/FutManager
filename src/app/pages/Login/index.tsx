@@ -5,16 +5,36 @@ import { Button } from "../../shared/components/Button"
 import { useNavigate } from "react-router-dom"
 import { Rota } from "../../shared/config"
 
+interface IDadosLogin {
+    usuario: string;
+    senha: string;
+}
+
 export const Login = () =>{
 
-    const [usuario, setUsuario] = useState("");
-    const [senha, setSenha] = useState("");
+    const [
+        dadosLogin,
+        setDadosLogin
+    ] = useState({} as IDadosLogin);
 
     const navigate = useNavigate();
 
     const inputUsuarioRef = useRef<HTMLInputElement>(null);
     const inputSenhaRef = useRef<HTMLInputElement>(null);
     const buttonEntrarRef = useRef<HTMLButtonElement>(null);
+
+    const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        const {
+            value,
+            name
+        } = e.target;
+
+        setDadosLogin({
+            ...dadosLogin,
+            [name] : value
+        })
+    }
 
     const handleFazerLogin = async() =>{
         try{
@@ -33,15 +53,15 @@ export const Login = () =>{
                     <Input.Base
                         ref={inputUsuarioRef}
                         descricaoLabel="Usuário"
-                        value={usuario}
-                        setValue={setUsuario}
+                        value={dadosLogin.usuario}
+                        handleChangeValue={handleChangeValue}
                         refProximoItem={inputSenhaRef}
                     />
                     <Input.Base
                         ref={inputSenhaRef}
                         descricaoLabel="Senha"
-                        value={senha}
-                        setValue={setSenha}
+                        value={dadosLogin.senha}
+                        handleChangeValue={handleChangeValue}
                         refProximoItem={buttonEntrarRef}
                     />
                     <Button

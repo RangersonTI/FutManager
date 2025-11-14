@@ -6,6 +6,7 @@ export const Header = styled.aside`
     width: 20%;
     display: flex;
     flex-direction: column;
+    user-select: none;
 
     overflow-y: auto;
 

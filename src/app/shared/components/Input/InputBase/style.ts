@@ -19,9 +19,10 @@ export const StyledInput = styled.div<IStyledInput>`
 
     input{
         padding: 5px;
+        padding-left: 10px;
         border-radius: 3px;
         width: 100%;
-        
+
         font-weight: 500;
         flex: 1;
         

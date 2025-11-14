@@ -1,5 +1,5 @@
 
-const URL_BASE = ""
+const URL_BASE = "/futebol/"
 
 const CADASTRAR = "cadastrar"
 
@@ -40,7 +40,9 @@ const CadastrarPunicao = `${Punicao}/${CADASTRAR}`
 const CadastrarFormaDePagamento = `${FormaDePagamento}/${CADASTRAR}`
 
 const CadastrarContaAReceber = `${ContaAReceber}/${CADASTRAR}`
+
 export const Rota = {
+    URL_BASE,
     ContaAReceber,
     FormaDePagamento,
     Horario,

@@ -3,23 +3,23 @@
 
         {
             "id": 1,
-            "nomeJogador": "Thiago Silva",
-            "idade": 15
+            "nome": "Thiago Silva",
+            "posicaoJogadorId": 1
         },
         {
             "id": 2,
-            "nomeJogador": "Luis Cardoso",
-            "idade": 15
+            "nome": "Luis Cardoso",
+            "posicaoJogadorId": 1
         },
         {
             "id": 3,
-            "nomeJogador": "Marcio da Silva",
-            "idade": 16
+            "nome": "Marcio da Silva",
+            "posicaoJogadorId": 1
         },
         {
             "id": 4,
-            "nomeJogador": "Carlinho Lima",
-            "idade": 15
+            "nome": "Carlinho Lima",
+            "posicaoJogadorId": 2
         }
     ]
 }

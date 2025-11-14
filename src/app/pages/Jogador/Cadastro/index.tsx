@@ -43,11 +43,10 @@ export const CadastroDeJogador = () =>{
                 : value
         });
     }
-    
+
     const handleSalvarNovoJogador = async(e: React.FormEvent) =>{
         e.preventDefault();
     }
-
 
     return(
         <HeaderComConteudo>

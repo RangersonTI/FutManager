@@ -3,8 +3,8 @@ import { ApiException } from "../../ApiException";
 
 export interface IJogadoresData{
     id: number;
-    nomeJogador: string;
-    idade: number;
+    nome: string;
+    posicaoJogadorId: number;
 }
 
 export const ObterJogadores = async(): Promise<IJogadoresData[]> =>{

@@ -11,14 +11,14 @@ const Jogador: IFormularioComponentProps = {
             tamanhoCampo: 'pp'
         },
         {
-            campoName: 'idade',
-            label: 'Idade',
+            campoName: 'posicaoJogadorId',
+            label: 'Posição',
             placeholder: 'Informe a idade do jogador',
             tamanhoCampo: 'pp'
         },
         {
-            campoName: 'nomeJogador',
-            label: 'Nome Jogador',
+            campoName: 'nome',
+            label: 'Nome',
             placeholder: 'Informe o nome do jogador',
             tamanhoCampo: 'g'
         },

@@ -6,7 +6,7 @@ import { CadastroDeJogador } from "../pages/Jogador/Cadastro";
 
 export const Rotas = () =>{
     return(
-        <BrowserRouter>
+        <BrowserRouter basename={Rota.URL_BASE}>
             <Routes>
                 <Route
                     path={Rota.ContaAReceber}
