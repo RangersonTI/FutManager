@@ -11,7 +11,6 @@ export const FormularioLogin = styled.div`
 
     .formulario-login{
         width: 450px;
-        min-height: 460px;
         padding: 1rem;
 
         background-color: var(--branco);
@@ -23,6 +22,10 @@ export const FormularioLogin = styled.div`
             text-align: center;
             font-family: 'Modular Amplitude', sans-serif;
             font-size: 40px;
+        }
+
+        .agrup-campos-login {
+            padding: 2rem 0;
         }
     }
 `

@@ -28,9 +28,8 @@ export const HeaderComConteudo = ({
 
     const {
         handleAdicionarMenuAhListaAberta,
+        handleLimparListaItensAberto,
         listaItensMenuEstaAberto,
-
-        usuarioLogado
     } = useHeader();
     
     const navigate = useNavigate();
@@ -40,8 +39,10 @@ export const HeaderComConteudo = ({
     ) => {
         const { rotaRaiz, subItem } = item;
 
-        if((!subItem || subItem.length == 0) && rotaRaiz)
-            navigate(rotaRaiz)
+        if((!subItem || subItem.length == 0) && rotaRaiz){
+            handleLimparListaItensAberto()            
+            return navigate(rotaRaiz)
+        }
         else
             handleAdicionarMenuAhListaAberta(k)
 
@@ -50,9 +51,11 @@ export const HeaderComConteudo = ({
     const handleNavegar = (item: ISubItemHeader) =>{
 
         if(item.tipoAcao === "visualizacao" || item.tipoAcao === "ambos")
-            return navigate(`/${item.acaoDoBotao}`)
+            navigate(`/${item.acaoDoBotao}`);
         else
-            return navigate(`/${item.acaoDoBotao}/cadastrar`)
+            navigate(`/${item.acaoDoBotao}/cadastrar`);
+
+        handleLimparListaItensAberto();
     }
 
     return(
@@ -61,9 +64,9 @@ export const HeaderComConteudo = ({
                 <Header className="header">
                     <div className="user-identification">
                         <div className="div-avatar">
-                            <Avatar sx={style}>{usuarioLogado[0]}</Avatar>
+                            <Avatar sx={style}>K</Avatar>
                         </div>
-                        <h1> Bem-Vindo, {usuarioLogado} </h1>
+                        <h1> Bem-Vindo, Kezio </h1>
                     </div>
                     <div className="header-conteudo-itens">
                         {ConfiguracaoHeader.map((item,k) =>(

@@ -12,7 +12,6 @@ export const StyledInput = styled.div<IStyledInput>`
     padding: 0.7rem;
     user-select: none;
     gap: 2px;
-    box-sizing: border-box;
 
     label{
         font-weight: 800;
@@ -20,8 +19,6 @@ export const StyledInput = styled.div<IStyledInput>`
     }
 
     input{
-        padding: 5px;
-        padding-left: 10px;
         border-radius: 3px;
         font-weight: 500;
 
@@ -29,8 +26,7 @@ export const StyledInput = styled.div<IStyledInput>`
             p.$tamanhoInput === 'pp' && css` width: 6rem` ||
             p.$tamanhoInput === 'p' && css` width: 12rem` ||
             p.$tamanhoInput === 'm' && css` width: 20rem` ||
-            p.$tamanhoInput === 'g' && css` width: 30rem` ||
-            p.$tamanhoInput === 'full' && css` width: 100%`
+            p.$tamanhoInput === 'g' && css` width: 30rem`
         }
     }
 `

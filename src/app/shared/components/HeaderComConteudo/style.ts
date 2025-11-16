@@ -14,6 +14,7 @@ export const Header = styled.aside`
 
     .user-identification {
         margin: 8px;
+        border-radius: 6px;
         background-color: var(--branco);
         display: flex;
         justify-content: center;
@@ -53,7 +54,8 @@ export const Conteudo = styled.div`
 `
 
 export const MenuAgrupado = styled.div`
-    label,svg{
+    label,
+    svg{
         color: var(--branco);
         cursor: pointer;
     }
@@ -74,7 +76,6 @@ export const MenuAgrupado = styled.div`
         svg {
             color: transparent;
         }
-        /* padding-left: 32px; */
     }
 
     .subItens{
@@ -86,7 +87,7 @@ export const MenuAgrupado = styled.div`
             display: flex;
             justify-items: center;
             font-size: 1.15rem;
-            font-weight: 800;
+            font-weight: 700;
             width: 85%;
             padding: 0.4rem;
 

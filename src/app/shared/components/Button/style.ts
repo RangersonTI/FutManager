@@ -4,6 +4,8 @@ import type { TipoBotao } from ".";
 interface IStyledButton{
     $tipoBotao: TipoBotao;
     $flex?: boolean;
+    $disabled?: boolean;
+    $loading?: boolean;
 }
 
 export const StyledButton = styled.button<IStyledButton>`

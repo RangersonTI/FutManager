@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { Input } from "../../shared/components/Input"
 import { FormularioLogin } from "./style"
 import { Button } from "../../shared/components/Button"
@@ -21,6 +21,11 @@ export const Login = () =>{
         setToken
     } = useAuthetication();
 
+    const [
+        estaRealizandoLogin,
+        setEstaRealizandoLogin
+    ] = useState(false);
+
     const navigate = useNavigate();
 
     const [
@@ -42,19 +47,35 @@ export const Login = () =>{
 
         setDadosLogin({
             ...dadosLogin,
-            [name] : value
+            [name] : name === "usuario" 
+                    ? Mascarar.paraNumero(value)
+                    : value
         })
     }
 
     const handleFazerLogin = async() =>{
+
+        const {
+            senha,
+            usuario
+        } = dadosLogin;
+
+        if(!usuario || usuario.length === 0)
+            return toast.warn("Por favor, informe seu ID de usuário!");
+
+        if(!senha || senha.length === 0)
+            return toast.warn("Por favor, informe a sua senha!");
+
+        setEstaRealizandoLogin(true);
+        
         try{
             const { token } = await AutenticacaoController.GerarToken({
                 id: dadosLogin.usuario,
                 senha:dadosLogin.senha
             });
-
+            
             setToken(token);
-
+            
             sessionStorage.setItem(storage.TOKEN, token);
 
             setTimeout(
@@ -65,24 +86,30 @@ export const Login = () =>{
         catch(error){
             toast.error(obterMensagemDeErro(error))
         }
+        setEstaRealizandoLogin(false);
     }
+
+    const botaoEntrarDesativado = useMemo(
+        () =>
+            estaRealizandoLogin
+        ,[
+            estaRealizandoLogin
+        ]
+    );
 
     return(
         <FormularioLogin>
             <div className="formulario-login">
                 <div className="titulo-login"> LOGIN </div>
-                <div>
+                <div className="agrup-campos-login">
                     <Input.Base
                         ref={inputUsuarioRef}
                         descricaoLabel="Usuário"
-                        value={
-                            Mascarar.paraNumero(dadosLogin.usuario)
-                        }
+                        value={dadosLogin.usuario}
                         name="usuario"
                         handleChangeValue={handleChangeValue}
                         refProximoItem={inputSenhaRef}
                         placeholder="Informe seu ID de usuário!"
-                        // title="Informe seu ID de usuário!"
                     />
                     <Input.Base
                         ref={inputSenhaRef}
@@ -98,6 +125,8 @@ export const Login = () =>{
                         onClick={handleFazerLogin}
                         ref={buttonEntrarRef}
                         descricaoBotao="Entrar"
+                        isLoading={estaRealizandoLogin}
+                        disabled={botaoEntrarDesativado}
                         flex
                     />
                 </div>

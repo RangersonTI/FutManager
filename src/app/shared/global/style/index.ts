@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, keyframes } from 'styled-components'
 import ImagemFundo from "../../assets/fundo.webp";
 
 export const GlobalStyle = createGlobalStyle`
@@ -76,17 +76,34 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     input{
-        height: 35px;
+        padding: 0.9rem;
+        padding-left: 10px;
         font-size: 16px;
         border: 0.4px solid var(--preto);
+        outline: none;
     }
 
     button{
-
         &:disabled{
             background-color: var(--desativado);
             cursor: not-allowed;
+            border-color: var(--cinza-escuro);
+
+            &:hover{
+                box-shadow:0px 0px 10px var(--cinza-escuro);
+            }
         }        
     }
 
 `
+
+const rotation = keyframes`
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+`;
+
+export const KeyFrame = { rotation }

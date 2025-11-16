@@ -6,8 +6,7 @@ interface IHeaderContextData{
         React.SetStateAction<number[]>
     >;
     handleAdicionarMenuAhListaAberta: (item: number) => void
-
-    usuarioLogado: string
+    handleLimparListaItensAberto: () => void
 }
 
 interface IHeaderProviderProps{
@@ -19,8 +18,6 @@ const Header = createContext({} as IHeaderContextData);
 function HeaderProvider({
     children
 }: IHeaderProviderProps){
-
-    const usuarioLogado = "Kezio";
 
     const [
         listaItensMenuEstaAberto,
@@ -34,14 +31,15 @@ function HeaderProvider({
             setListaItensMenuEstaAberto((p) => ([...p,item]));
     }
 
+    const handleLimparListaItensAberto = () => setListaItensMenuEstaAberto([]);
+
     return(
         <Header.Provider
             value={{
                 listaItensMenuEstaAberto,
                 setListaItensMenuEstaAberto,
                 handleAdicionarMenuAhListaAberta,
-
-                usuarioLogado
+                handleLimparListaItensAberto,
             }}
         >
             { children }
