@@ -15,9 +15,14 @@ export class ApiException extends Error{
         if(axios.isAxiosError(error)){
             const erro = error.response;
 
-            if(erro?.status === 400 || erro?.status ===  404 || erro?.status === 500 ) {
-                if(Verificar.sePossuiMensagemDeErro(erro.data)){
-                    this.mensagem = erro.data.mensagem;
+            if(
+                erro?.status === 400 ||
+                erro?.status === 404 ||
+                erro?.status === 409 ||
+                erro?.status === 500
+            ) {
+                if(Verificar.seEhMensagemDeErroApi(erro.data)){
+                    this.mensagem = erro.data.message;
                     this.status = erro.data.status;
                 } else {
                     this.mensagem = mensagemPersonalizada;

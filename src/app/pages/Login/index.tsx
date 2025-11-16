@@ -3,7 +3,12 @@ import { Input } from "../../shared/components/Input"
 import { FormularioLogin } from "./style"
 import { Button } from "../../shared/components/Button"
 import { useNavigate } from "react-router-dom"
-import { Rota } from "../../shared/config"
+import { Rota, storage } from "../../shared/config"
+import { AutenticacaoController } from "../../shared/services/AutenticacaoController"
+import { Mascarar } from "../../shared/function/Mascarar"
+import { useAuthetication } from "../../shared/hook/useAuthentication"
+import { toast } from "react-toastify"
+import { obterMensagemDeErro } from "../../shared/services/Api"
 
 interface IDadosLogin {
     usuario: string;
@@ -12,12 +17,17 @@ interface IDadosLogin {
 
 export const Login = () =>{
 
+    const {
+        setToken
+    } = useAuthetication();
+
+    const navigate = useNavigate();
+
     const [
         dadosLogin,
         setDadosLogin
     ] = useState({} as IDadosLogin);
 
-    const navigate = useNavigate();
 
     const inputUsuarioRef = useRef<HTMLInputElement>(null);
     const inputSenhaRef = useRef<HTMLInputElement>(null);
@@ -38,10 +48,22 @@ export const Login = () =>{
 
     const handleFazerLogin = async() =>{
         try{
-            navigate(Rota.Inicio);
+            const { token } = await AutenticacaoController.GerarToken({
+                id: dadosLogin.usuario,
+                senha:dadosLogin.senha
+            });
+
+            setToken(token);
+
+            sessionStorage.setItem(storage.TOKEN, token);
+
+            setTimeout(
+                () => navigate(Rota.Inicio),
+                500
+            );
         }
         catch(error){
-            console.warn(error);
+            toast.error(obterMensagemDeErro(error))
         }
     }
 
@@ -53,16 +75,24 @@ export const Login = () =>{
                     <Input.Base
                         ref={inputUsuarioRef}
                         descricaoLabel="Usuário"
-                        value={dadosLogin.usuario}
+                        value={
+                            Mascarar.paraNumero(dadosLogin.usuario)
+                        }
+                        name="usuario"
                         handleChangeValue={handleChangeValue}
                         refProximoItem={inputSenhaRef}
+                        placeholder="Informe seu ID de usuário!"
+                        // title="Informe seu ID de usuário!"
                     />
                     <Input.Base
                         ref={inputSenhaRef}
                         descricaoLabel="Senha"
+                        name="senha"
                         value={dadosLogin.senha}
                         handleChangeValue={handleChangeValue}
                         refProximoItem={buttonEntrarRef}
+                        placeholder="Informe sua senha!"
+                        type="password"
                     />
                     <Button
                         onClick={handleFazerLogin}

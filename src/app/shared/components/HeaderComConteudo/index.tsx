@@ -7,7 +7,8 @@ import { CaretDownIcon, CaretRightIcon, EyeIcon, PlusSquareIcon, SignOutIcon } f
 
 import { useHeader } from "../../hook/useHeader";
 import { useNavigate } from "react-router-dom";
-import type { ISubItemHeader } from "../../global/types";
+import type { IConfiguracaoItemHeader, ISubItemHeader } from "../../global/types";
+import { Redirecionar } from "../../function/Redirecionar";
 
 interface IHeaderComConteudoProps{
     children: ReactNode;
@@ -34,6 +35,18 @@ export const HeaderComConteudo = ({
     
     const navigate = useNavigate();
 
+    const handleVerificarItemPossuiSubItens = (
+        item: IConfiguracaoItemHeader, k: number
+    ) => {
+        const { rotaRaiz, subItem } = item;
+
+        if((!subItem || subItem.length == 0) && rotaRaiz)
+            navigate(rotaRaiz)
+        else
+            handleAdicionarMenuAhListaAberta(k)
+
+    }
+
     const handleNavegar = (item: ISubItemHeader) =>{
 
         if(item.tipoAcao === "visualizacao" || item.tipoAcao === "ambos")
@@ -56,16 +69,23 @@ export const HeaderComConteudo = ({
                         {ConfiguracaoHeader.map((item,k) =>(
                             <MenuAgrupado>
                                 <div
-                                    className={`item ${k}`}
-                                    onClick={() =>handleAdicionarMenuAhListaAberta(k)}
+                                    className={`item ${k} ${!item.subItem && 'disableCaret'}`}
+                                    onClick={() =>handleVerificarItemPossuiSubItens(item,k)}
                                 >
-                                    {listaItensMenuEstaAberto.includes(k)
-                                        ?<CaretDownIcon size={32} weight="fill"/> 
-                                        :<CaretRightIcon size={32} weight="fill"/> 
-                                    }
+                                    {/* {item.subItem && (
+                                        <> */}
+                                            {listaItensMenuEstaAberto.includes(k)
+                                                ? <CaretDownIcon size={32} weight="fill"/> 
+                                                : <CaretRightIcon size={32} weight="fill"/> 
+                                            }
+                                        {/* </>
+                                    )} */}
                                     <label>{item.nomeItem}</label>
                                 </div>
-                                {listaItensMenuEstaAberto.includes(k) && (
+                                {
+                                    listaItensMenuEstaAberto.includes(k) && 
+                                    item.subItem &&
+                                    (
                                     <div className={`subItens item-${k}`}>
                                         {item.subItem.map((subItem) =>(
                                             <div className="subItem" onClick={() => handleNavegar(subItem)}>
@@ -83,7 +103,10 @@ export const HeaderComConteudo = ({
                             </MenuAgrupado>
                         ))}
                     </div>
-                    <Sair className="botao-sair">
+                    <Sair 
+                        className="botao-sair"
+                        onClick={() => Redirecionar.paraLogin()}
+                    >
                         <span>
                             <SignOutIcon size={26} weight="bold" />
                             <label>SAIR</label>

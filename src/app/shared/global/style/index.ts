@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import ImagemFundo from "../../assets/fundo.webp";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -34,12 +35,15 @@ export const GlobalStyle = createGlobalStyle`
         width: 100dvw;
         height: 100dvh;
 
-        background: linear-gradient(to bottom,
+        /* background: linear-gradient(to bottom,
             var(--verde-menta-claro) 20%,
             var(--verde-bambu-claro) 80%,
             var(--verde-escuro) 95%
-        );
-
+        ); */
+        background-image: url(${ImagemFundo});
+        background-repeat: no-repeat;
+        background-size: cover;
+        
         ::-webkit-scrollbar{
             width: 10px;
         }
@@ -52,6 +56,10 @@ export const GlobalStyle = createGlobalStyle`
         ::-webkit-scrollbar-track{
             background:rgba(255, 255, 255, 0.30);
             width: 0;
+        }
+
+        .Toastify__toast {
+            padding: 1rem;
         }
     }
 

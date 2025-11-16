@@ -13,15 +13,17 @@ export interface ISubItemHeader{
 }
 
 export interface IConfiguracaoItemHeader{
-    nomeItem: string,
-    subItem: ISubItemHeader[]
+    nomeItem: string;
+    rotaRaiz?: string;
+    subItem?: ISubItemHeader[]
 }
 
 export interface MappeadObject{
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key:string] : any;
 }
 
-export type TTamanhoDoCampo = "pp" | "p"  | "m" | "g" 
+export type TTamanhoDoCampo = "pp" | "p"  | "m" | "g" | "full"
 
 export interface ICamposFormProps{
     label: string;
@@ -35,4 +37,12 @@ export interface IFormularioComponentProps{
     titulo?: string;
     possuiIconeVoltarTitulo: boolean;
     campos: ICamposFormProps[]
+}
+
+export interface ITokenDecodificadoProps {
+    Id: string;
+    TipoUsuarioId: string;
+    nbf: number;
+    exp: number;
+    iat: number;
 }

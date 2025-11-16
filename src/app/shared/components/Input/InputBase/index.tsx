@@ -9,7 +9,7 @@ export const InputBase = ({
     refProximoItem,
     descricaoLabel,
     ref,
-    tamanhoInput = 'm',
+    tamanhoInput = 'full',
     ...rest
 }: IInput) =>{
 

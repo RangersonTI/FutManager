@@ -9,8 +9,10 @@ interface IStyledInput {
 export const StyledInput = styled.div<IStyledInput>`
 
     display: grid;
+    padding: 0.7rem;
     user-select: none;
-    padding: 1rem;
+    gap: 2px;
+    box-sizing: border-box;
 
     label{
         font-weight: 800;
@@ -21,25 +23,14 @@ export const StyledInput = styled.div<IStyledInput>`
         padding: 5px;
         padding-left: 10px;
         border-radius: 3px;
-        width: 100%;
-
         font-weight: 500;
-        flex: 1;
-        
-        ${(p) =>
-            p.$tamanhoInput === 'g' && css` width: 30rem `
-        }
 
         ${(p) =>
-            p.$tamanhoInput === 'm' && css` width: 20rem `
-        }
-
-        ${(p) =>
-            p.$tamanhoInput === 'p' && css` width: 12rem `
-        }
-
-        ${(p) =>
-            p.$tamanhoInput === 'pp' && css` width: 6rem`
+            p.$tamanhoInput === 'pp' && css` width: 6rem` ||
+            p.$tamanhoInput === 'p' && css` width: 12rem` ||
+            p.$tamanhoInput === 'm' && css` width: 20rem` ||
+            p.$tamanhoInput === 'g' && css` width: 30rem` ||
+            p.$tamanhoInput === 'full' && css` width: 100%`
         }
     }
 `

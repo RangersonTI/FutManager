@@ -70,6 +70,13 @@ export const MenuAgrupado = styled.div`
         
     }
 
+    .disableCaret {
+        svg {
+            color: transparent;
+        }
+        /* padding-left: 32px; */
+    }
+
     .subItens{
         justify-items: end;
         grid-gap: 0.5rem;
@@ -96,6 +103,10 @@ export const MenuAgrupado = styled.div`
                 background-color: var(--verde-escuro);
             }
         }
+    }
+    
+    &:hover {
+        background-color: var(--verde-escuro);
     }
 `
 

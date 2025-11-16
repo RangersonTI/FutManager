@@ -1,4 +1,8 @@
 
-export const localStorage = {}
+const DATABASE = "@futmanager"
 
-export const sessionStorage = {}
+const TOKEN = `${DATABASE}:authetication-token`
+
+export const storage = {
+    TOKEN
+}

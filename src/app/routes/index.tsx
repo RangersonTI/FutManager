@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Login } from "../pages/Login";
 import { Inicio } from "../pages/Inicio";
 import { Rota } from "../shared/config";
-import { CadastroDeJogador } from "../pages/Jogador/Cadastro";
+import { RotaPrivada } from "../shared/components/RotaPrivada";
 
 export const Rotas = () =>{
     return(
@@ -10,94 +10,52 @@ export const Rotas = () =>{
             <Routes>
                 <Route
                     path={Rota.ContaAReceber}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.FormaDePagamento}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.Horario}
-                    element={<Login/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.Inicio}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.Jogador}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.Login}
-                    element={<Inicio/>}
+                    element={<Login/>}
                 />
 
                 <Route
                     path={Rota.Partida}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.Punicao}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.TipoUsuario}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route
                     path={Rota.Usuario}
-                    element={<Inicio/>}
-                />
-                {
-                    // ROTAS PARA CADASTRO
-                }
-                <Route
-                    path={Rota.CadastrarContaAReceber}
-                    element={<Inicio/>}
-                />
-
-                <Route
-                    path={Rota.CadastrarFormaDePagamento}
-                    element={<Inicio/>}
-                />
-
-                <Route
-                    path={Rota.CadastrarHorario}
-                    element={<Inicio/>}
-                />
-
-                <Route
-                    path={Rota.CadastrarJogador}
-                    element={<CadastroDeJogador/>}
-                />
-
-                <Route
-                    path={Rota.CadastrarPartida}
-                    element={<Inicio/>}
-                />
-
-                <Route
-                    path={Rota.CadastrarPunicao}
-                    element={<Inicio/>}
-                />
-
-                <Route
-                    path={Rota.CadastrarTipoUsuario}
-                    element={<Inicio/>}
-                />
-
-                <Route
-                    path={Rota.CadastrarUsuario}
-                    element={<Inicio/>}
+                    element={<RotaPrivada componente={Inicio}/>}
                 />
 
                 <Route

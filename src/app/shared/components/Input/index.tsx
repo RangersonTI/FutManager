@@ -1,6 +1,7 @@
 import type { RefObject } from "react";
 import { InputBase } from "./InputBase";
 import type { TTamanhoDoCampo } from "../../global/types";
+import { InputSugestao } from "./Sugestao";
 
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>{
     ref?: RefObject<HTMLInputElement | null>;
@@ -13,5 +14,6 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement | HTM
 }
 
 export const Input = {
-    Base: InputBase
+    Base: InputBase,
+    Sugestao: InputSugestao
 }

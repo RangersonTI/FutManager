@@ -1,12 +1,12 @@
 
 interface ErrorResponse{
-    mensagem: string;
+    message: string;
     status: number;
 }
 
 
-const sePossuiMensagemDeErro = (object: any) : object is ErrorResponse => {
-    return(object && "mensagem" in object && typeof object.mensagem === "string")
+const seEhMensagemDeErroApi = (object: any) : object is ErrorResponse => {
+    return(object && "message" in object && typeof object.message === "string")
 }
 
-export const Verificar = { sePossuiMensagemDeErro }
+export const Verificar = { seEhMensagemDeErroApi }
