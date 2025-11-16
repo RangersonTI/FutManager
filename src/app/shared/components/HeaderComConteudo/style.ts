@@ -104,7 +104,7 @@ export const MenuAgrupado = styled.div`
             }
         }
     }
-    
+
     &:hover {
         background-color: var(--verde-escuro);
     }
