@@ -46,3 +46,8 @@ export interface ITokenDecodificadoProps {
     exp: number;
     iat: number;
 }
+
+export interface IConfiguracaoTabelaProps{
+    campo: string;
+    codigo: string;
+}

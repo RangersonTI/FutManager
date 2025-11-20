@@ -3,6 +3,7 @@ import { Redirecionar } from "../../function/Redirecionar";
 import { storage } from "../../config";
 import { useAuthetication } from "../../hook/useAuthentication";
 import { Decodificar } from "../../function/Decodificar";
+import { api } from "../../services/Api";
 
 interface IRotaPrivadaProps {
     componente: React.ElementType
@@ -45,7 +46,7 @@ export const RotaPrivada = ({
             if(tokenStorage) {
                 try {
                     const tokenDecodificado = Decodificar.token(tokenStorage);
-                    
+
                     // OBTEM O TEMPO DE ESPIRAÇÃO E MILISEGUNDOS
                     const exp = tokenDecodificado.exp * 1000;
                     // OBTEM A DATA ATUAL EM MILISEGUNDOS
@@ -58,9 +59,10 @@ export const RotaPrivada = ({
                         setToken(tokenStorage);
                         setDadosUsuarioLogado(tokenDecodificado);
                         setUsuarioEstaLogado(true);
+                        api.defaults.headers["Authorization"] = `Bearer ${tokenStorage}`
                     }
                 }
-                catch { }
+                catch {  }
             }
 
             setEstaValidandoLogin(false);

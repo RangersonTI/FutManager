@@ -1,5 +1,5 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
-import ImagemFundo from "../../assets/fundo.webp";
+import ImagemFundo from "../../assets/wallpaper/fundo.webp";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -11,8 +11,9 @@ export const GlobalStyle = createGlobalStyle`
         --azul-medio: #76A1FF;
 
         --verde-menta-claro: #CBF4CB;
-        --verde-bambu-claro:rgb(130, 199, 130);
+        --verde-bambu-claro:#82c782ff;
         --verde-bambu: #6FAA6F;
+        --verde-bambu-claro: #a7c3a7ff;
         --verde: #377936;
         --verde-escuro: #297128;
         --vermelho: #FD4E4E;
@@ -26,20 +27,20 @@ export const GlobalStyle = createGlobalStyle`
         --preto-fosco: #333333;
         --preto-opc-50: #00000050;
         --desativado: #919191;
+
+        // TOASTFY
+        --toastify-color-info: #2484c4ff;
+        --toastify-color-success: #06960bff;
+        --toastify-color-warning: #de9f00ff;
+        --toastify-color-error: #e12814ff;
     }
 
     html,body{
         padding: 0;
         margin: 0;
-
         width: 100dvw;
         height: 100dvh;
 
-        /* background: linear-gradient(to bottom,
-            var(--verde-menta-claro) 20%,
-            var(--verde-bambu-claro) 80%,
-            var(--verde-escuro) 95%
-        ); */
         background-image: url(${ImagemFundo});
         background-repeat: no-repeat;
         background-size: cover;
@@ -82,8 +83,9 @@ export const GlobalStyle = createGlobalStyle`
         border: 0.4px solid var(--preto);
         outline: none;
     }
-
+    
     button{
+        padding: 0.9rem;
         &:disabled{
             background-color: var(--desativado);
             cursor: not-allowed;

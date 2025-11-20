@@ -12,7 +12,6 @@ function App() {
       <ModalProvider>
         <HeaderProvider>
           <ToastContainer
-            closeOnClick={false}
             pauseOnHover
             limit={5000}
             theme='colored'

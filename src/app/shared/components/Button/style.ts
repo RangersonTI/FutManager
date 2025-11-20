@@ -8,6 +8,10 @@ interface IStyledButton{
     $loading?: boolean;
 }
 
+interface IDivButton {
+    $botaoContainerFiltro?: boolean;
+}
+
 export const StyledButton = styled.button<IStyledButton>`
     border-radius: 5px;
     border: 1px solid;
@@ -18,7 +22,7 @@ export const StyledButton = styled.button<IStyledButton>`
     font-size: 20px;
     color: var(--branco);
 
-    padding: 0.5rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     
     ${p => p.$flex && css`
         width: 100%;
@@ -62,7 +66,15 @@ export const StyledButton = styled.button<IStyledButton>`
     }
 `
 
-export const DivButton = styled.div`
+export const DivButton = styled.div<IDivButton>`
     user-select: none;
     padding: 1rem;
+
+    ${p => p.$botaoContainerFiltro 
+        && css`
+            padding: 0.4rem;
+            padding-bottom: 8px;
+            align-content:end;
+        `
+    }
 `

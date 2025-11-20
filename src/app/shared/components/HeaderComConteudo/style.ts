@@ -51,6 +51,7 @@ export const Header = styled.aside`
 export const Conteudo = styled.div`
     width: 100%;
     padding: 0.6rem;
+    overflow: auto;
 `
 
 export const MenuAgrupado = styled.div`

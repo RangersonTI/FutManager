@@ -78,10 +78,8 @@ export const Login = () =>{
             
             sessionStorage.setItem(storage.TOKEN, token);
 
-            setTimeout(
-                () => navigate(Rota.Inicio),
-                500
-            );
+            navigate(Rota.Inicio);
+
         }
         catch(error){
             toast.error(obterMensagemDeErro(error))

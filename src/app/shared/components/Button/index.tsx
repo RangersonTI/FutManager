@@ -5,6 +5,8 @@ import { Loading } from "../Loading";
 export type TipoBotao =  "cadastrar" | "visualizar" | "cancelar" | "padrao"
 
 export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement>{
+    divButtonStyle?: React.CSSProperties;
+    botaoContainerFiltro?:boolean;
     tipoBotao?: TipoBotao;
     descricaoBotao: string;
     isLoading?: boolean;
@@ -13,6 +15,8 @@ export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement>{
 }
 
 export const Button = ({
+    botaoContainerFiltro,
+    divButtonStyle,
     descricaoBotao,
     tipoBotao = "padrao",
     isLoading,
@@ -21,7 +25,7 @@ export const Button = ({
     ...rest
 } : IButton) =>{
     return(
-        <DivButton>
+        <DivButton $botaoContainerFiltro={botaoContainerFiltro} style={divButtonStyle}>
             <StyledButton
                 ref={ref}
                 $tipoBotao={tipoBotao}

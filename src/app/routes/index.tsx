@@ -3,6 +3,7 @@ import { Login } from "../pages/Login";
 import { Inicio } from "../pages/Inicio";
 import { Rota } from "../shared/config";
 import { RotaPrivada } from "../shared/components/RotaPrivada";
+import { Usuario } from "../pages/Usuario";
 
 export const Rotas = () =>{
     return(
@@ -55,7 +56,7 @@ export const Rotas = () =>{
 
                 <Route
                     path={Rota.Usuario}
-                    element={<RotaPrivada componente={Inicio}/>}
+                    element={<RotaPrivada componente={Usuario}/>}
                 />
 
                 <Route

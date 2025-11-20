@@ -8,10 +8,4 @@ export const ContainerElement = styled.div`
     #header-e-conteudo{
         display: flex;
     }
-
-    /* background: linear-gradient(to bottom,
-        var(--verde-menta-claro) 20%,
-        var(--verde-bambu-claro) 70%,
-        var(--verde-escuro) 90%
-    ); */
 `
