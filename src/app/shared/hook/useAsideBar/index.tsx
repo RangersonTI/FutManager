@@ -1,28 +1,38 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-interface IHeaderContextData{
+interface IAsideBarContextData{
     listaItensMenuEstaAberto: number[];
     setListaItensMenuEstaAberto: React.Dispatch<
         React.SetStateAction<number[]>
     >;
     handleAdicionarMenuAhListaAberta: (item: number) => void
     handleLimparListaItensAberto: () => void
+
+    asideBarEstaAberto: boolean;
+    setAsideBarEstaAberto: React.Dispatch<
+        React.SetStateAction<boolean>
+    >;
 }
 
-interface IHeaderProviderProps{
+interface IAsideBarProviderProps{
     children: ReactNode;
 }
 
-const Header = createContext({} as IHeaderContextData);
+const AsideBar = createContext({} as IAsideBarContextData);
 
-function HeaderProvider({
+function AsideBarProvider({
     children
-}: IHeaderProviderProps){
+}: IAsideBarProviderProps){
 
     const [
         listaItensMenuEstaAberto,
         setListaItensMenuEstaAberto
     ] = useState<number[]>([]);
+
+    const [
+        asideBarEstaAberto,
+        setAsideBarEstaAberto
+    ] = useState(true);
 
     const handleAdicionarMenuAhListaAberta = (item: number) =>{
         if(listaItensMenuEstaAberto.includes(item))
@@ -31,27 +41,32 @@ function HeaderProvider({
             setListaItensMenuEstaAberto((p) => ([...p,item]));
     }
 
-    const handleLimparListaItensAberto = () => setListaItensMenuEstaAberto([]);
+    const handleLimparListaItensAberto = () => {
+        setListaItensMenuEstaAberto([]);
+        setAsideBarEstaAberto(false);
+    };
 
     return(
-        <Header.Provider
+        <AsideBar.Provider
             value={{
                 listaItensMenuEstaAberto,
                 setListaItensMenuEstaAberto,
                 handleAdicionarMenuAhListaAberta,
                 handleLimparListaItensAberto,
+                asideBarEstaAberto,
+                setAsideBarEstaAberto
             }}
         >
             { children }
-        </Header.Provider>
+        </AsideBar.Provider>
     );
 }
 
-const useHeader = () => {
-    const context = useContext(Header);
+const useAsideBar = () => {
+    const context = useContext(AsideBar);
 
     return context;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export { useHeader, HeaderProvider}
+export { useAsideBar, AsideBarProvider}

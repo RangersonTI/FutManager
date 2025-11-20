@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { HeaderComConteudo } from "../../shared/components/HeaderComConteudo";
+import { AsideBarComConteudo } from "../../shared/components/AsideBarComConteudo";
 import { Tabela } from "../../shared/components/Tabela";
 import { toast } from "react-toastify";
 import { obterMensagemDeErro } from "../../shared/services/Api";
@@ -49,7 +49,7 @@ export const Usuario = () => {
     );
 
     return(
-        <HeaderComConteudo>
+        <AsideBarComConteudo>
             <ContainerGerencial
                 descricao={"Gerenciamento de Usuários"}
             >
@@ -75,6 +75,6 @@ export const Usuario = () => {
                     handleAcaoDeletarDado={()=>{}}
                 />
             </ContainerGerencial>
-        </HeaderComConteudo>
+        </AsideBarComConteudo>
     );
 }

@@ -56,6 +56,15 @@ export const Tbody = styled.tbody`
         img {
             width: 28px;
             cursor: pointer;
+
+            @media (max-width: 1400px) {
+                width: 25px;
+            }
+
+            @media (max-width: 1000px) {
+                width: 23px;
+            }
+
         }
     }
 `;

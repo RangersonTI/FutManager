@@ -5,17 +5,17 @@ export type ITipoAcoes = 'cadastro' | 'visualizacao' | 'ambos'
 export type AcaoDoBotao =   'partida' | 'jogador' | 'horario' | 'usuario' |
                             'tipo-usuario' | 'punicao' | 'forma-de-pagamento' | 'contas-a-receber'
 
-export interface ISubItemHeader{
+export interface ISubItemAsideBar{
     nomeSubItem: string;
     tipoAcao: ITipoAcoes;
     acaoDoBotao: AcaoDoBotao;
 
 }
 
-export interface IConfiguracaoItemHeader{
+export interface IConfiguracaoItemAsidebar{
     nomeItem: string;
     rotaRaiz?: string;
-    subItem?: ISubItemHeader[]
+    subItem?: ISubItemAsideBar[]
 }
 
 export interface MappeadObject{
@@ -50,4 +50,9 @@ export interface ITokenDecodificadoProps {
 export interface IConfiguracaoTabelaProps{
     campo: string;
     codigo: string;
+}
+
+export interface ISelectAttProps extends MappeadObject {
+    id: number;
+    descricao: string;
 }

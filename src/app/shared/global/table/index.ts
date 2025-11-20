@@ -17,10 +17,6 @@ const Usuarios: IConfiguracaoTabelaProps[] = [
         campo: "Tipo Usuário",
         codigo: "tipo_usuario_id",
     },
-    {
-        campo: "Senha",
-        codigo: "senha",
-    }
 ]
 
 

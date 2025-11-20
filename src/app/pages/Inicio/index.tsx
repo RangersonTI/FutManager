@@ -1,10 +1,10 @@
-import { HeaderComConteudo } from "../../shared/components/HeaderComConteudo";
+import { AsideBarComConteudo } from "../../shared/components/AsideBarComConteudo";
 
 
 export const Inicio = () =>{
     return(
-        <HeaderComConteudo>
+        <AsideBarComConteudo>
             <></>
-        </HeaderComConteudo>
+        </AsideBarComConteudo>
     );
 }

@@ -32,7 +32,7 @@ export const Tabela = ({
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {data.map((objeto,index) => (
+                    {data.map((objeto) => (
                         <Tr>
                             {configuracaoTabela.map((config) => (
                                 <Td>

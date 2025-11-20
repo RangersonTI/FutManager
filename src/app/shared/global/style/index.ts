@@ -83,7 +83,7 @@ export const GlobalStyle = createGlobalStyle`
         border: 0.4px solid var(--preto);
         outline: none;
     }
-    
+
     button{
         padding: 0.9rem;
         &:disabled{
@@ -108,4 +108,22 @@ const rotation = keyframes`
     }
 `;
 
-export const KeyFrame = { rotation }
+const pulsate = keyframes`
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.04);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    75% {
+        transform: scale(1.12);
+    }
+    100% {
+        transform: scale(1.16);
+    }
+`;
+
+export const KeyFrame = { rotation, pulsate }

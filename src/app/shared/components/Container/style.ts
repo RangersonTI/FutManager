@@ -5,7 +5,11 @@ export const ContainerElement = styled.div`
     width: 100%;
     height: 100%;
 
-    #header-e-conteudo{
+    #asidebar-e-conteudo{
         display: flex;
+    }
+
+    .asiderbar-e-arrow-abre-e-fecha {
+
     }
 `

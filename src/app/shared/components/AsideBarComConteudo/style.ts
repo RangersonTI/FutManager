@@ -1,8 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { KeyFrame } from "../../global/style";
 
-export const Header = styled.aside`
+interface IMenuHambugerProps {
+    $asiderBarEstaAberta: boolean;
+}
+
+export const AsideBar = styled.aside`
     height: 100vh;
-    min-width: 300px;
+    min-width: 350px;
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -35,7 +40,7 @@ export const Header = styled.aside`
         }
     }
 
-    .header-conteudo-itens{
+    .asidebar-conteudo-itens{
         padding: 1rem 0;
         flex-direction: column;
         flex: 1;
@@ -45,6 +50,42 @@ export const Header = styled.aside`
         justify-items: center;
         align-items: center;
         min-width: 50px;
+    }
+`
+
+export const MenuHamburguer = styled.div<IMenuHambugerProps>`
+    display: flex;
+    height: 100dvh;
+
+    #section-menu-hamburguer{
+        background-color: var(--verde);
+        width: 50px;
+        padding: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .botao-de-acoes {
+            display: flex;
+            justify-content: center;
+            img {
+                width: 44px;
+            }
+        }
+
+        img:hover {
+            transition: animation;
+            animation: ${KeyFrame.pulsate} 0.5s forwards;
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width:1280px) {
+        ${p => p.$asiderBarEstaAberta &&
+            css`
+                position: fixed;
+            `
+        }
     }
 `
 

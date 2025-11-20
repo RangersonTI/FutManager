@@ -1,7 +1,7 @@
 import { Rota } from "../../config";
-import type { IConfiguracaoItemHeader } from "../types";
+import type { IConfiguracaoItemAsidebar } from "../types";
 
-export const ConfiguracaoHeader: IConfiguracaoItemHeader[] = [
+export const ConfiguracaoAsideBar: IConfiguracaoItemAsidebar[] = [
     {
         nomeItem: "Cadastros-Basicos",
 

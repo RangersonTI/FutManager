@@ -2,7 +2,7 @@
 import { Rotas } from './routes'
 import { GlobalStyle } from './shared/global/style'
 import { AuthenticationProvider } from './shared/hook/useAuthentication'
-import { HeaderProvider } from './shared/hook/useHeader';
+import { AsideBarProvider } from './shared/hook/useAsideBar';
 import { ToastContainer } from 'react-toastify';
 import { ModalProvider } from './shared/hook/useModal';
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <AuthenticationProvider>
       <ModalProvider>
-        <HeaderProvider>
+        <AsideBarProvider>
           <ToastContainer
             pauseOnHover
             limit={5000}
@@ -18,7 +18,7 @@ function App() {
           />
           <GlobalStyle/>
           <Rotas/>
-        </HeaderProvider>
+        </AsideBarProvider>
       </ModalProvider>
     </AuthenticationProvider>
   )
